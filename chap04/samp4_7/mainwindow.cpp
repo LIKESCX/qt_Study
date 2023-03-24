@@ -159,6 +159,7 @@ void MainWindow::on_listWidget_customContextMenuRequested(const QPoint &pos)
    menuList->addAction(ui->actSelNone);
    menuList->addAction(ui->actSelInvs);
 //   qDebug() << "弹框打开";
+   //静态函数QCursor::pos()获取鼠标光标当前位置。
    menuList->exec(QCursor::pos());//在鼠标光标位置显示右键快捷菜单 //菜单弹出后，会阻塞到这里，当选中一项后，弹窗消失，执行下面的delete 删除堆中对象
 //   qDebug() << "弹框消失";
    delete menuList;
