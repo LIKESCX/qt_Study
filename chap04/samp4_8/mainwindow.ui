@@ -53,7 +53,7 @@
      <x>0</x>
      <y>0</y>
      <width>593</width>
-     <height>19</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
@@ -67,6 +67,12 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QDockWidget" name="dockWidget">
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
@@ -79,13 +85,187 @@
          <string notr="true">1</string>
         </property>
        </column>
+       <column>
+        <property name="text">
+         <string>节点</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>节点类型</string>
+        </property>
+       </column>
       </widget>
      </item>
     </layout>
    </widget>
   </widget>
+  <action name="actAddFolder">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/folder1.bmp</normaloff>:/images/icons/folder1.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>添加目录...</string>
+   </property>
+   <property name="toolTip">
+    <string>添加目录</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actAddFile">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/new1.bmp</normaloff>:/images/icons/new1.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>添加文件...</string>
+   </property>
+   <property name="toolTip">
+    <string>添加文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actZoomIn">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/418.bmp</normaloff>:/images/icons/418.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>放大</string>
+   </property>
+   <property name="toolTip">
+    <string>放大图片</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actZoomOut">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/416.bmp</normaloff>:/images/icons/416.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>缩小</string>
+   </property>
+   <property name="toolTip">
+    <string>缩小图片</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actZoomRealSize">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/414.bmp</normaloff>:/images/icons/414.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>实际大小</string>
+   </property>
+   <property name="toolTip">
+    <string>图片实际大小显示</string>
+   </property>
+  </action>
+  <action name="actZoomFitW">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/424.bmp</normaloff>:/images/icons/424.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>适合宽度</string>
+   </property>
+   <property name="toolTip">
+    <string>适合宽度显示</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actDeleteItem">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/delete1.bmp</normaloff>:/images/icons/delete1.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>删除节点</string>
+   </property>
+   <property name="toolTip">
+    <string>删除节点</string>
+   </property>
+  </action>
+  <action name="actQuit">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/exit.bmp</normaloff>:/images/icons/exit.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="toolTip">
+    <string>退出本系统</string>
+   </property>
+  </action>
+  <action name="actZoomFitH">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/426.bmp</normaloff>:/images/icons/426.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>适合高度</string>
+   </property>
+   <property name="toolTip">
+    <string>适合高度</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actScanItems">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/fold.bmp</normaloff>:/images/icons/fold.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>遍历节点</string>
+   </property>
+   <property name="toolTip">
+    <string>遍历节点</string>
+   </property>
+  </action>
+  <action name="actDockVisible">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/415.bmp</normaloff>:/images/icons/415.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>窗体可见</string>
+   </property>
+   <property name="toolTip">
+    <string>窗体可见</string>
+   </property>
+  </action>
+  <action name="actDockFloat">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/icons/414.bmp</normaloff>:/images/icons/414.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>窗体浮动</string>
+   </property>
+   <property name="toolTip">
+    <string>窗体浮动</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>
