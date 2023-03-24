@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/images">
+        <file>icons/15.ico</file>
+        <file>icons/29.ico</file>
+        <file>icons/31.ico</file>
+        <file>icons/32.ico</file>
+        <file>icons/35.ico</file>
         <file>icons/101.bmp</file>
         <file>icons/102.bmp</file>
         <file>icons/103.bmp</file>
@@ -92,16 +97,19 @@
         <file>icons/431.bmp</file>
         <file>icons/432.bmp</file>
         <file>icons/433.bmp</file>
-        <file>icons/BLD.BMP</file>
-        <file>icons/check2.ico</file>
+        <file>icons/802.bmp</file>
+        <file>icons/814.bmp</file>
+        <file>icons/824.bmp</file>
         <file>icons/copy.bmp</file>
         <file>icons/copy2.bmp</file>
         <file>icons/cut.bmp</file>
         <file>icons/cut2.bmp</file>
+        <file>icons/DBLUNDR.BMP</file>
         <file>icons/delete1.bmp</file>
         <file>icons/delete2.bmp</file>
         <file>icons/delfold1.bmp</file>
         <file>icons/delfold2.bmp</file>
+        <file>icons/Documents.ico</file>
         <file>icons/exit.bmp</file>
         <file>icons/exit2.bmp</file>
         <file>icons/export1.bmp</file>
@@ -131,6 +139,7 @@
         <file>icons/print2.bmp</file>
         <file>icons/redo.bmp</file>
         <file>icons/redo2.bmp</file>
+        <file>icons/res.qrc</file>
         <file>icons/save1.bmp</file>
         <file>icons/save2.bmp</file>
         <file>icons/saveall1.bmp</file>

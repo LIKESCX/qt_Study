@@ -102,8 +102,8 @@
   </widget>
   <action name="actAddFolder">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/images/icons/folder1.bmp</normaloff>:/images/icons/folder1.bmp</iconset>
+    <iconset>
+     <normaloff>icons/folder1.bmp</normaloff>icons/folder1.bmp</iconset>
    </property>
    <property name="text">
     <string>添加目录...</string>
@@ -252,8 +252,8 @@
   </action>
   <action name="actDockFloat">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/images/icons/414.bmp</normaloff>:/images/icons/414.bmp</iconset>
+    <iconset>
+     <normaloff>icons/814.bmp</normaloff>icons/814.bmp</iconset>
    </property>
    <property name="text">
     <string>窗体浮动</string>
