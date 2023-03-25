@@ -16,12 +16,37 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_actAddFolder_triggered();
+
+    void on_actAddFiles_triggered();
+
+    void on_treeFiles_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous);
+
+    void on_actDeleteItem_triggered();
+
+    void on_actScanItems_triggered();
+
+    void on_actZoomFitH_triggered();
+
+    void on_actZoomIn_triggered();
+
+    void on_actZoomRealSize_triggered();
+
+    void on_actDockVisible_triggered(bool arg1);
+
+    void on_actDockFloat_triggered(bool checked);
+
+    void on_dockWidget_visibilityChanged(bool visible);
+
+    void on_dockWidget_topLevelChanged(bool topLevel);
+
 private:
     Ui::MainWindow *ui;
 
 private:
     //枚举类型treeItemType，创建节点时用作type参数，自定义类型必须大于1000
-    enum treeItemType {
+    enum treeItemType { //枚举中只给第一个参数赋值，后面的参数不显示赋值，自动会+1赋值。
        itTopItem = 1001,
        itGroupItem,
        itImageItem
