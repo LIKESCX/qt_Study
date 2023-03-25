@@ -79,12 +79,7 @@
    <widget class="QWidget" name="dockWidgetContents">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QTreeWidget" name="treeWidget">
-       <column>
-        <property name="text">
-         <string notr="true">1</string>
-        </property>
-       </column>
+      <widget class="QTreeWidget" name="treeFiles">
        <column>
         <property name="text">
          <string>节点</string>
