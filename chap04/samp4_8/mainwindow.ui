@@ -6,44 +6,45 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>931</width>
-    <height>476</height>
+    <width>782</width>
+    <height>413</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>QTreeWidget的使用</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout_3">
+   <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QScrollArea" name="scrollArea">
       <property name="widgetResizable">
        <bool>true</bool>
       </property>
       <property name="alignment">
-       <set>Qt::AlignCenter</set>
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
       </property>
       <widget class="QWidget" name="scrollAreaWidgetContents">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>624</width>
-         <height>361</height>
+         <width>487</width>
+         <height>298</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_2"/>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="LabPicture">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="LabPicture">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
      </widget>
     </item>
    </layout>
@@ -53,7 +54,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>931</width>
+     <width>782</width>
      <height>23</height>
     </rect>
    </property>
@@ -117,8 +118,8 @@
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
       <widget class="QTreeWidget" name="treeFiles">
        <property name="layoutDirection">
         <enum>Qt::LeftToRight</enum>

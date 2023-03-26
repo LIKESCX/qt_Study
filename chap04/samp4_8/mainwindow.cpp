@@ -57,7 +57,7 @@ void MainWindow::on_actAddFolder_triggered()
 void MainWindow::addFolderItem(QTreeWidgetItem *parItem, QString dirName)
 {//添加一个组节点
     qDebug()<<"添加一个组节点";
-    QIcon icon(":/iamges/icons/open3.bmp");
+    QIcon icon(":/images/icons/open3.bmp");
     QString nodeText = getFinalFolderName(dirName);//获得最后的文件夹名称
     QTreeWidgetItem *item = Q_NULLPTR;
     item = new QTreeWidgetItem(MainWindow::itGroupItem);//节点类型itGroupItem
@@ -82,7 +82,7 @@ QString MainWindow::getFinalFolderName(const QString &fullPathName)
 
 void MainWindow::on_actAddFiles_triggered()
 {//添加图片文件节点
-    QStringList files = QFileDialog::getOpenFileNames(this,"选择一个或多个文件","","Iamges(*.jpg)");
+    QStringList files = QFileDialog::getOpenFileNames(this,"选择一个或多个文件","","Images(*.jpg)");//手动修改文件名后缀的图片文件，也打不开，必须原始文件就是这里的格式
     if(files.isEmpty())
         return;
     QTreeWidgetItem *parItem = Q_NULLPTR,*item = Q_NULLPTR;
@@ -174,9 +174,19 @@ void MainWindow::changeItemCaption(QTreeWidgetItem *item)
 
 void MainWindow::displayImage(QTreeWidgetItem *item)
 {//显示图片，节点item存储了图片文件名
+    qDebug() << "显示图片，节点item存储了图片文件名";
     QString filename = item->data(colItem,Qt::UserRole).toString();//文件名
     LabFileName->setText(filename);
-    curPixmap.load(filename);
+    qDebug() << filename;
+    //A null pixmap has zero width, zero height and no contents. You cannot draw in a null pixmap. 是刚执行QPixmap curPixmap;创建的时候默认初始化
+    if(curPixmap.isNull()){
+        qDebug() << "is null....1";
+    }
+    bool localLoad = curPixmap.load(filename);
+    qDebug() << "localLoad" << localLoad;//当能真正找到并格式包括解析没问题的话，返回true。
+    if(curPixmap.isNull()){
+        qDebug() << "is null....2";//当根据文件名找不到具体文件，或者文件名的后缀被手动改过。
+    }
     on_actZoomFitH_triggered();//自动适应高度显示
 }
 
@@ -184,10 +194,14 @@ void MainWindow::displayImage(QTreeWidgetItem *item)
 
 void MainWindow::on_actZoomFitH_triggered()
 {//适应高度显示图片
+    qDebug() << "适应高度显示图片";
     int H = ui->scrollArea->height();
+    qDebug() << "H =" << H;
     int realH = curPixmap.height();
+    qDebug() << "realH =" << realH;
     pixRatio = float(H)/realH; //当前显示比例，必须转换为浮点数
     QPixmap pix = curPixmap.scaledToHeight(H-30);//图片缩放到指定高度
+    //这里注意UI上LabPicture是否在scrollArea里面，如果层级不对，是展示不出图片的。会闪退
     ui->LabPicture->setPixmap(pix);
 }
 
