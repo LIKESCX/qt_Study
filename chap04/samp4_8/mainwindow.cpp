@@ -50,8 +50,14 @@ void MainWindow::on_actAddFolder_triggered()
     if(!dir.isEmpty())
     {
         QTreeWidgetItem *parItem = ui->treeFiles->currentItem(); //当前节点
+        if(parItem == Q_NULLPTR){
+           qDebug()<< "没有选择父节点";
+           return;//防止程序崩溃
+        }
         addFolderItem(parItem, dir);//父节点下面添加一个组节点
     }
+    qDebug()<<"请先选择顶层节点";
+    return;
 }
 
 void MainWindow::addFolderItem(QTreeWidgetItem *parItem, QString dirName)
