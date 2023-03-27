@@ -153,12 +153,37 @@ void MainWindow::on_treeFiles_currentItemChanged(QTreeWidgetItem *current, QTree
 void MainWindow::on_actDeleteItem_triggered()
 {//删除节点
     QTreeWidgetItem *item = ui->treeFiles->currentItem();//当前节点
-    QTreeWidgetItem *parItem = item->parent();//父节点
-    //Removes the given item indicated by child. The removed item will not be deleted.需手动delete
-    parItem->removeChild(item);//移除一个子节点，并不会删除
-    delete  item;
+//    int childCount = item->childCount();
+//    qDebug() << "子节点数量: " << childCount;
+
+//    QTreeWidgetItem *parItem = item->parent();//父节点
+//    //Removes the given item indicated by child. The removed item will not be deleted.需手动delete
+//    parItem->removeChild(item);//移除一个子节点，并不会删除
+//    delete  item;
+    //以上书上提供的方法只能删除当前节点，当前节点下的子节点，及子子节点 都没有被删除，程序有问题。
+    removeItem(item);//采用这种方法 可以删除干净
 }
 
+//递归删除节点 --书上没有 自己完善的
+void MainWindow::removeItem(QTreeWidgetItem *item)
+{
+    int count = item->childCount();
+    if(count == 0)//没有子节点，直接删除
+    {
+        QString localText = item->text(colItem);
+        qDebug() << "删除子节点 " << localText;
+        delete item;
+        return;
+    }
+    for(int i=0; i<count; i++)
+    {
+        QTreeWidgetItem *childItem = item->child(0);//删除子节点
+        removeItem(childItem);
+    }
+    QString localText = item->text(colItem);
+    qDebug() << "最后将自己删除 " << localText;
+    delete item;//最后将自己删除
+}
 
 void MainWindow::on_actScanItems_triggered()
 {//遍历节点

@@ -25,6 +25,8 @@ private slots:
 
     void on_actDeleteItem_triggered();
 
+    void removeItem(QTreeWidgetItem *item);//书上没有的
+
     void on_actScanItems_triggered();
 
     void on_actZoomFitH_triggered();
