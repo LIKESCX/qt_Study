@@ -28,8 +28,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>487</width>
-         <height>298</height>
+         <width>495</width>
+         <height>309</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
@@ -55,7 +55,7 @@
      <x>0</x>
      <y>0</y>
      <width>782</width>
-     <height>23</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -114,6 +114,9 @@
    <property name="allowedAreas">
     <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
    </property>
+   <property name="windowTitle">
+    <string>图片目录树</string>
+   </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
@@ -153,7 +156,7 @@
    <property name="shortcut">
     <string>Ctrl+F</string>
    </property>
-   <property name="shortcutVisibleInContextMenu">
+   <property name="shortcutVisibleInContextMenu" stdset="0">
     <bool>true</bool>
    </property>
   </action>
