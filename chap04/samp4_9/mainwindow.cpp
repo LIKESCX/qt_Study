@@ -168,12 +168,70 @@ void MainWindow::on_btnDelCurRow_clicked()
     ui->tableInfo->removeRow(curRow);//删除当前行及其items，会释放item在堆中的内存
 }
 
-//用表格可编辑 复选框 控制 单元格是否可编辑,其实QTableWidget的editTriggers属性默认是可以编辑的，这个可以在UI界面看到，这里在UI上把默认值改为不可编辑。
+//用表格可编辑 复选框 控制 单元格是否可编辑,其实QTableWidget的editTriggers属性默认是可以编辑的。
 void MainWindow::on_chkBoxTabEditable_clicked(bool checked)
 {//设置编辑模式
     if(checked)
         ui->tableInfo->setEditTriggers(QAbstractItemView::DoubleClicked | QAbstractItemView::SelectedClicked);//双击或获取焦点后单击，进入编辑状态
     else
         ui->tableInfo->setEditTriggers(QAbstractItemView::NoEditTriggers);//禁止编辑模式
+}
+
+
+//设置行表头是否显示
+void MainWindow::on_chkBoxHeaderH_clicked(bool checked)
+{//是否显示行表头
+    ui->tableInfo->horizontalHeader()->setVisible(checked);
+}
+
+//设置列表头是否显示
+void MainWindow::on_chkBoxHeaderV_clicked(bool checked)
+{//是否显示列表头
+    ui->tableInfo->verticalHeader()->setVisible(checked);
+}
+
+
+
+//间隔行底色
+void MainWindow::on_chkBoxRowColor_clicked(bool checked)
+{
+    ui->tableInfo->setAlternatingRowColors(checked);
+}
+
+
+//选择模式
+void MainWindow::on_rBtnSelectItem_clicked()
+{//选择模式：单元格选择
+    ui->tableInfo->setSelectionBehavior(QAbstractItemView::SelectItems);
+}
+
+void MainWindow::on_rBtnSelectRow_clicked()
+{//选择模式：行选择
+     ui->tableInfo->setSelectionBehavior(QAbstractItemView::SelectRows);
+}
+
+//遍历表格读取数据
+void MainWindow::on_btnReadToEdit_clicked()
+{//将所有单元格的内容提取字符串，显示在PlainTextEdit组件里
+    QString str;
+    QTableWidgetItem *cellItem;
+    ui->textEdit->clear();
+    for (int i=0; i<ui->tableInfo->rowCount(); i++)
+    {
+       str = QString::asprintf("第 %d 行：",i+1);
+       for (int j=0; j<ui->tableInfo->columnCount()-1 ; j++)
+       {
+           cellItem = ui->tableInfo->item(i,j);
+           str = str+cellItem->text()+" ";//字符串拼接
+       }
+       cellItem = ui->tableInfo->item(i,colPartyM);//最后一列
+       if(cellItem->checkState() == Qt::Checked)
+           str=str+"党员";
+       else
+           str=str+"群众";
+       //Appends a new paragraph with text to the end of the text edit.
+       ui->textEdit->appendPlainText(str);
+    }
+
 }
 

@@ -33,6 +33,18 @@ private slots:
 
     void on_chkBoxTabEditable_clicked(bool checked);
 
+    void on_chkBoxHeaderH_clicked(bool checked);
+
+    void on_chkBoxHeaderV_clicked(bool checked);
+
+    void on_chkBoxRowColor_clicked(bool checked);
+
+    void on_rBtnSelectItem_clicked();
+
+    void on_rBtnSelectRow_clicked();
+
+    void on_btnReadToEdit_clicked();
+
 private:
     Ui::MainWindow *ui;
 
