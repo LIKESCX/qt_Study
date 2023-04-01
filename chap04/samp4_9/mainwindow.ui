@@ -68,21 +68,21 @@
          </widget>
         </item>
         <item row="3" column="0">
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="btnInsertRow">
           <property name="text">
            <string>插入行</string>
           </property>
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="btnAppendRow">
           <property name="text">
            <string>添加行</string>
           </property>
          </widget>
         </item>
         <item row="4" column="0" colspan="2">
-         <widget class="QPushButton" name="pushButton_11">
+         <widget class="QPushButton" name="btnDelCurRow">
           <property name="text">
            <string>删除当前行</string>
           </property>
@@ -110,7 +110,7 @@
          </widget>
         </item>
         <item row="7" column="0">
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QCheckBox" name="chkBoxTabEditable">
           <property name="text">
            <string>表格可编辑</string>
           </property>
@@ -163,7 +163,11 @@
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <widget class="QTableWidget" name="tableInfo"/>
+       <widget class="QTableWidget" name="tableInfo">
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+       </widget>
        <widget class="QPlainTextEdit" name="plainTextEdit"/>
       </widget>
      </widget>
@@ -176,7 +180,7 @@
      <x>0</x>
      <y>0</y>
      <width>738</width>
-     <height>19</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

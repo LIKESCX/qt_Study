@@ -23,6 +23,16 @@ private slots:
 
     void on_btnSetRowCount_clicked();
 
+    void on_tableInfo_currentCellChanged(int currentRow, int currentColumn, int previousRow, int previousColumn);
+
+    void on_btnInsertRow_clicked();
+
+    void on_btnAppendRow_clicked();
+
+    void on_btnDelCurRow_clicked();
+
+    void on_chkBoxTabEditable_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
 
