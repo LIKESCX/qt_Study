@@ -232,6 +232,5 @@ void MainWindow::on_btnReadToEdit_clicked()
        //Appends a new paragraph with text to the end of the text edit.
        ui->textEdit->appendPlainText(str);
     }
-
 }
 

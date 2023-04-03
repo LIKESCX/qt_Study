@@ -168,7 +168,13 @@
          <set>QAbstractItemView::NoEditTriggers</set>
         </property>
        </widget>
-       <widget class="QPlainTextEdit" name="textEdit"/>
+       <widget class="QPlainTextEdit" name="textEdit">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -180,7 +186,7 @@
      <x>0</x>
      <y>0</y>
      <width>738</width>
-     <height>23</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>
