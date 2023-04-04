@@ -81,7 +81,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_12">
+         <widget class="QPushButton" name="btnTextImport">
           <property name="text">
            <string>显示数据模型的StringList</string>
           </property>
@@ -99,9 +99,9 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="LabInfo">
          <property name="text">
-          <string>当前项：</string>
+          <string/>
          </property>
         </widget>
        </item>

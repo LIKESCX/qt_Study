@@ -57,3 +57,18 @@ void Widget::on_btnListClear_clicked()
     theModel->removeRows(0,theModel->rowCount());
 }
 
+
+void Widget::on_btnTextImport_clicked()
+{//显示数据模式的StringList
+    QStringList tempList = theModel->stringList();
+    ui->plainTextEdit->clear();
+    for (int i=0;i<tempList.count() ;i++ )
+        ui->plainTextEdit->appendPlainText(tempList.at(i));
+}
+
+
+void Widget::on_listView_clicked(const QModelIndex &index)
+{//显示QModelIndex的行和列
+    ui->LabInfo->setText(QString::asprintf("当前项：row=%d, column=%d",index.row(),index.column()));
+}
+

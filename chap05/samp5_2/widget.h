@@ -25,6 +25,10 @@ private slots:
 
     void on_btnListClear_clicked();
 
+    void on_btnTextImport_clicked();
+
+    void on_listView_clicked(const QModelIndex &index);
+
 private:
     Ui::Widget *ui;
 
