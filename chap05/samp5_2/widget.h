@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QStringListModel>
 
 namespace Ui {
 class Widget;
@@ -17,6 +18,9 @@ public:
 
 private:
     Ui::Widget *ui;
+
+private:
+    QStringListModel *theModel;
 };
 
 #endif // WIDGET_H
