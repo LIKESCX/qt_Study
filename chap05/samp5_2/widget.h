@@ -16,6 +16,15 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+private slots:
+    void on_btnListAppend_clicked();
+
+    void on_btnListInsert_clicked();
+
+    void on_btnListDelete_clicked();
+
+    void on_btnListClear_clicked();
+
 private:
     Ui::Widget *ui;
 
