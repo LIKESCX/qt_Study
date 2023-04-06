@@ -242,3 +242,45 @@ void MainWindow::on_actFontBold_triggered(bool checked)
     }
 }
 
+//数据另存为文件
+void MainWindow::on_actSave_triggered()
+{//保存为文件
+   QString curPath = QCoreApplication::applicationDirPath();
+   QString aFileName = QFileDialog::getOpenFileName(this,"选择一个文件",curPath,"井数据文件(*.txt);;所有文件(*.*)");
+   if(aFileName.isEmpty())
+       return;
+   QFile aFile(aFileName);
+   if(!(aFile.open(QIODevice::ReadWrite | QIODevice::Text | QIODevice::Truncate)))
+       return;//以读写、覆盖原有内容方式打开文件
+   QTextStream aStream(&aFile);
+   QStandardItem *aItem;
+   int i,j;
+   QString str;
+   ui->plainTextEdit->clear();//清空预览区
+
+   //获取表头文字
+   for (int i=0;i<theModel->columnCount();i++) {
+       aItem = theModel->horizontalHeaderItem(i);//获取表头的项数据
+       str=str+aItem->text()+"\t\t"; //以TAB隔开
+   }
+   aStream<<str<<"\n";//文件里需要加入换行符 \n
+   ui->plainTextEdit->appendPlainText(str);
+   //获取数据区文字
+   for (i=0;i<theModel->rowCount();i++ )
+   {
+       str="";
+       for (j=0;j<theModel->columnCount()-1;j++)
+       {
+          aItem = theModel->item(i,j);
+          str = str+aItem->text()+"\t\t";
+       }
+       aItem = theModel->item(i,j);//最后一列是逻辑型
+       if(aItem->checkState()==Qt::Checked)
+           str=str+"1";
+       else
+           str=str+"0";
+       ui->plainTextEdit->appendPlainText(str);
+       aStream<<str<<"\n";
+   }
+}
+

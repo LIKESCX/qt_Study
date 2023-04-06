@@ -46,6 +46,8 @@ private slots:
 
     void on_actFontBold_triggered(bool checked);
 
+    void on_actSave_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
