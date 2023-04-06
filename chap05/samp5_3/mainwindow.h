@@ -30,6 +30,7 @@ public:
 private slots:
     //当前选择单元格发生变化
     void on_currentChanged(const QModelIndex &current, const QModelIndex &previous);
+    void on_actOpen_triggered();
 
 private:
     Ui::MainWindow *ui;
