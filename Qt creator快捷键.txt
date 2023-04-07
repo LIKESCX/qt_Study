@@ -1,0 +1,70 @@
+项目相关
+	打开项目 Ctrl +O
+	新建项目 Ctrl +N
+代码编辑相关
+向上、下复制一行 Ctrl + Alt + arrowUp 或 arrowDown
+将本行挪到上、下一行 Ctrl + Shift + arrowUp 或 arrowDown
+全局重命名 Ctrl + Shift + R
+变量、函数声明、定义间跳转 F2
+变量、函数声明、定义间跳转（在新分栏中打开） Ctrl+E，F2
+头文件、源文件之间跳转 F4
+头文件、源文件之间跳转（在新分栏中打开） Ctrl+E，F4
+跳转 UI 设计器 Shift + F4
+光标位置移动（上一个位置） Alt + arrowLeft
+光标位置移动（下一个位置） Alt + arrowRight
+显示粘贴列表 Ctrl + Shift + V
+转到行 Ctrl + L
+直接添加新行 Ctrl + Enter
+选中字符串变为小写 Alt + U
+选中字符串变为大写 Alt + Shift + U
+代码自动格式化 Ctrl + i
+注释、反注释 Ctrl + /
+跳转帮助文档 F1
+跨行选择 Alt + 鼠标选取
+查找
+查找、替换 Ctrl + F
+高级查找 Ctrl + Shift + F
+查找下一个 F3
+查找上一个 Shift + F3
+查找下一个选中项 Ctrl + F3
+查找上一个选中项 Ctrl + Shift + F3
+已打开文件
+关闭当前文件 Ctrl + W
+关闭除当前文件外的其他文件 Ctrl + F4
+关闭所有已打开文件 Ctrl + Shift + F4
+历史中先前打开的文件 Ctrl + Tab
+历史中上一个打开的文件 Ctrl + Shift + Tab
+分栏
+新建左右分栏 Ctrl + E， 2
+新建上下分栏 Ctrl + E， 3
+删除当前分栏 Ctrl + E， 0
+删除所有分栏 Ctrl + E， 1
+转到下一个分栏 Ctrl + E， O
+转到上一个分栏 Ctrl + E， I
+编译相关
+构建当前项目 Ctrl + B
+构建所有项目 Ctrl + Shift + B
+取消构建 Alt + Backplace
+运行 Ctrl + R
+调试相关
+切换断点 F9
+开始调试 F5
+继续调试 F5
+停止调试 Shift + F5
+单步跳过 F10
+单步进入 F11
+单步跳出 Shift + F11
+执行到行 Ctrl + F10
+运行到选择的函数 Ctrl + F6
+书签
+添加书签 Ctrl + M
+下一个书签 Ctrl + .
+上一个书签 Ctrl + ,
+查看书签视图 Ctrl + Shift +B
+Qt Designer
+预览 Shift + Alt + R
+显示或隐藏工程目录: Alt + 0 
+当变量为指针变量时 键盘输入变量名.会自动变成->
+当鼠标关闭位于 代码行中时，Alt + Enter 可以自动补全生成变量名称及类型，此快捷键 也会 自动提示让添加缺失的头文件。
+Shift+Delete:为删除当前行，下一行往上移
+选中组件，然后按住Ctrl,点击鼠标左键拖动组件，会从当前组件中拷贝一个组件

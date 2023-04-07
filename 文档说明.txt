@@ -1,0 +1,2 @@
+qt版本下载地址：https://download.qt.io/archive/qt/
+从qt5.15开始不支持离线下载安装了。qt5.15之前的支持离线下载安装。
