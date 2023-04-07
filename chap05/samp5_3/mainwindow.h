@@ -5,6 +5,9 @@
 #include <QLabel>
 #include <QStandardItemModel>
 #include <QItemSelectionModel>
+#include "qwintspindelegate.h"
+#include "qwfloatspindelegate.h"
+#include "qwcomboboxdelegate.h"
 #define FixedColumnCount 6  //文件固定6列
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +25,10 @@ private:
     QStandardItemModel *theModel;//数据模型
     QItemSelectionModel *theSelection;//选择模型
     void iniModelFromStringList(QStringList&);//从StringList初始化数据模型
+private:
+    QWIntSpinDelegate intSpinDelegate;//整数型
+    QWFloatSpinDelegate floatSpinDelegate;//浮点型
+    QWComboBoxDelegate comboBoxDelegate;//下拉列表
 
 public:
     MainWindow(QWidget *parent = nullptr);

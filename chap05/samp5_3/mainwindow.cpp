@@ -31,6 +31,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->statusbar->addWidget(LabCurFile);
     ui->statusbar->addWidget(LabCellPos);
     ui->statusbar->addWidget(LabCellText);
+
+    //为各列设置自定义代理组件
+    ui->tableView->setItemDelegateForColumn(0,&intSpinDelegate);//测探
+    ui->tableView->setItemDelegateForColumn(1,&floatSpinDelegate);//垂深
+    ui->tableView->setItemDelegateForColumn(2,&floatSpinDelegate);//方位
+    ui->tableView->setItemDelegateForColumn(3,&floatSpinDelegate);//总位移
+    ui->tableView->setItemDelegateForColumn(4,&comboBoxDelegate);//固井质量
 }
 
 void MainWindow::on_currentChanged(const QModelIndex &current, const QModelIndex &previous)

@@ -10,10 +10,16 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qwcomboboxdelegate.cpp \
+    qwfloatspindelegate.cpp \
+    qwintspindelegate.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    qwcomboboxdelegate.h \
+    qwfloatspindelegate.h \
+    qwintspindelegate.h
 
 FORMS += \
     mainwindow.ui
