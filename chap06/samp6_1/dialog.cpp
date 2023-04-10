@@ -6,6 +6,7 @@
 #include <QFontDialog>
 #include <QLineEdit>
 #include <QInputDialog>
+#include <QMessageBox>
 
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
@@ -155,5 +156,53 @@ void Dialog::on_btnInputItem_clicked()
     QString text = QInputDialog::getItem(this,dlgTitle,txtLabel,items,curIndex,editable,&ok);
     if(ok && !text.isEmpty())
         ui->plainTextEdit->appendPlainText(text);
+}
+
+
+void Dialog::on_btnMsgInformation_clicked()
+{//information
+    QString dlgTitle = "information消息框";
+    QString strInfo = "文件已打开，字体大小已设置";
+    QMessageBox::information(this,dlgTitle,strInfo,QMessageBox::Ok,QMessageBox::NoButton);
+}
+
+
+void Dialog::on_brnMsgWarning_clicked()
+{//warning
+    QString dlgTitle = "warning消息框";
+    QString strInfo = "文件内容已经被修改";
+    QMessageBox::warning(this,dlgTitle,strInfo);
+}
+
+
+void Dialog::on_brnMsgCritical_clicked()
+{//critical
+    QString dlgTitle = "critical消息框";
+    QString strInfo = "有不明程序访问网络";
+    QMessageBox::critical(this,dlgTitle,strInfo);
+}
+
+
+void Dialog::on_btnMsgAbout_clicked()
+{//about
+    QString dlgTitle = "about消息框";
+    QString strInfo = "我开发的数据查看软件V1.0\n 保留所有版权";
+    QMessageBox::about(this,dlgTitle,strInfo);
+}
+
+
+void Dialog::on_btnMsgQuestion_clicked()
+{
+    QString dlgTitle = "Question消息框";
+    QString strInfo = "文件已被修改，是否保存修改？";
+    QMessageBox::StandardButton defaultBtn = QMessageBox::NoButton;
+    QMessageBox::StandardButton result;//返回选择的按钮
+    result =QMessageBox::question(this,dlgTitle,strInfo,QMessageBox::Yes|QMessageBox::No|QMessageBox::Cancel,defaultBtn);
+    if(result==QMessageBox::Yes)
+        ui->plainTextEdit->appendPlainText("Question消息框: Yes 被选择");
+    else if(result==QMessageBox::No)
+        ui->plainTextEdit->appendPlainText("Question消息框: No 被选择");
+    else
+        ui->plainTextEdit->appendPlainText("Question消息框: 无选择");
 }
 

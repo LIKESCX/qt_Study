@@ -36,6 +36,16 @@ private slots:
 
     void on_btnInputItem_clicked();
 
+    void on_btnMsgInformation_clicked();
+
+    void on_brnMsgWarning_clicked();
+
+    void on_brnMsgCritical_clicked();
+
+    void on_btnMsgAbout_clicked();
+
+    void on_btnMsgQuestion_clicked();
+
 private:
     Ui::Dialog *ui;
 };
