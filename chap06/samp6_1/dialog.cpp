@@ -2,6 +2,11 @@
 #include "ui_dialog.h"
 #include <QDir>
 #include <QFileDialog>
+#include <QColorDialog>
+#include <QFontDialog>
+#include <QLineEdit>
+#include <QInputDialog>
+
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Dialog)
@@ -56,5 +61,67 @@ void Dialog::on_btnSave_clicked()
     QString aFileName = QFileDialog::getSaveFileName(this,dlgTitle,curPath,filter);
     if(!aFileName.isEmpty())
         ui->plainTextEdit->appendPlainText(aFileName);
+}
+
+
+void Dialog::on_btnColor_clicked()
+{//选择颜色
+    QPalette pal = ui->plainTextEdit->palette();//palette表示调色板,获取现有的调色板
+    QColor iniColor = pal.color(QPalette::Text);//现有的文字颜色，即当前的文字颜色
+    QColor color = QColorDialog::getColor(iniColor,this,"选择颜色");//打开选择颜色框，这里传入iniColor目的及作用，是当打开颜色选择框时，不选颜色，直接点击确定，就显示这个iniColor的颜色。
+    if(color.isValid())//没有选择颜色，直接点击取消时，为false
+    {
+        pal.setColor(QPalette::Text,color);
+        ui->plainTextEdit->setPalette(pal);
+    }
+}
+
+
+void Dialog::on_btnFont_clicked()
+{//选择字体
+    const QFont& iniFont = ui->plainTextEdit->font();
+    bool ok = false;
+    //If the user clicks OK, the selected font is returned. If the user clicks Cancel, the initial font is returned.
+//    QFont font = QFontDialog::getFont(&ok,iniFont);
+    QFont font = QFontDialog::getFont(&ok,iniFont,this,"选择字体");//getFont静态函数返回的QFont,没有isValid()的函数，所以这里通过传入的ok变量，来判断用户是否选择了字体,没有选择直接取消或直接点击确定，就显示传入的iniFont的字体。
+    if(ok)
+        ui->plainTextEdit->setFont(font);
+
+}
+
+
+void Dialog::on_btnInputString_clicked()
+{//输入字符串
+    QString dlgTitle="输入文字对话框";
+    QString txtLabel="请输入文件名";
+    QString defaultInput="新建文件.txt";
+    //设置输入模式
+    QLineEdit::EchoMode echoMode = QLineEdit::Normal;//普通文本
+//    QLineEdit::EchoMode echoMode = QLineEdit::Password;//密码输入
+    bool ok = false;
+    QString text = QInputDialog::getText(this,dlgTitle,txtLabel,echoMode,defaultInput,&ok);
+    if(ok && !text.isEmpty())
+        ui->plainTextEdit->appendPlainText(text);
+
+}
+
+
+void Dialog::on_btnInputInt_clicked()
+{//输入整数
+    QString dlgTitle="输入整数对话框";
+    QString txtLabel="设置字体大小";
+    int defaultValue = ui->plainTextEdit->font().pointSize();
+    int minValue=6, maxValue=50, stepValue=1;
+    bool ok = false;
+    int inputValue = QInputDialog::getInt(this,dlgTitle,txtLabel,defaultValue,minValue,maxValue,stepValue,&ok);
+    if(ok)
+    {
+        QFont font = ui->plainTextEdit->font();
+        font.setPointSize(inputValue);
+        ui->plainTextEdit->setFont(font);
+    }
+    //这里 font()函数原型是 const QFont &font() const 即返回类型是 const QFont & ，但是这里我们用QFont font来接收返回值，也是可以的。
+    //用Font font来接收的话，就是程序自动把返回的引用对应的对象，赋值给 Font font，相当于拷贝一个新的对象，可以修改这个新的对象。而用const QFont &接收，
+    //返回的是一个引用变量，指向函数返回值，无新对象创建，不能通过此引用变量修改对象内容。
 }
 

@@ -75,14 +75,14 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="QPushButton" name="pushButton_13">
+       <widget class="QPushButton" name="btnInputString">
         <property name="text">
          <string>输入字符串</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QPushButton" name="pushButton_14">
+       <widget class="QPushButton" name="btnInputInt">
         <property name="text">
          <string>输入整数</string>
         </property>
