@@ -89,14 +89,14 @@
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QPushButton" name="pushButton_16">
+       <widget class="QPushButton" name="btnInputInt_2">
         <property name="text">
          <string>输入浮点数</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QPushButton" name="pushButton_15">
+       <widget class="QPushButton" name="btnInputItem">
         <property name="text">
          <string>条目选择输入</string>
         </property>

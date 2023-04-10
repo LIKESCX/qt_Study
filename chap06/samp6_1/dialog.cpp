@@ -125,3 +125,35 @@ void Dialog::on_btnInputInt_clicked()
     //返回的是一个引用变量，指向函数返回值，无新对象创建，不能通过此引用变量修改对象内容。
 }
 
+
+void Dialog::on_btnInputInt_2_clicked()
+{//输入浮点数
+    QString dlgTitle="输入浮点数对话框";
+    QString txtLabel="输入一个浮点数";
+    float defaultValue=3.13;
+    float minValue=0, maxValue=1000;
+    int decimals=2;//小数点位数,在输入栏里最多只能输入到小数点第2位
+    bool ok = false;
+    float inputValue = QInputDialog::getDouble(this,dlgTitle,txtLabel,defaultValue,minValue,maxValue,decimals,&ok);
+    if(ok)
+    {
+        QString str = QString::asprintf("输入一个浮点数:%.2f",inputValue);//%.2f:表示小数点后显示2位小数，不足的补零。
+        ui->plainTextEdit->appendPlainText(str);
+    }
+}
+
+
+void Dialog::on_btnInputItem_clicked()
+{//条目选择输入
+    QStringList items;
+    items << "优秀" << "良好" << "合格" << "不合格";
+    QString dlgTitle = "条目选择对话框";
+    QString txtLabel = "请选择级别";
+    int curIndex = 2; //初始选择项
+    bool editable = true;//Combox是否可编辑
+    bool ok = false;
+    QString text = QInputDialog::getItem(this,dlgTitle,txtLabel,items,curIndex,editable,&ok);
+    if(ok && !text.isEmpty())
+        ui->plainTextEdit->appendPlainText(text);
+}
+

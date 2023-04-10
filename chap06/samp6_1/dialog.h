@@ -32,6 +32,10 @@ private slots:
 
     void on_btnInputInt_clicked();
 
+    void on_btnInputInt_2_clicked();
+
+    void on_btnInputItem_clicked();
+
 private:
     Ui::Dialog *ui;
 };
