@@ -6,14 +6,29 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    theModel = new QStandardItemModel(0,6,this);//数据模型
+    theModel = new QStandardItemModel(0,5,this);//数据模型
     theSelection = new QItemSelectionModel(theModel);//选择模式
     connect(theSelection,SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-            this,SLOT(on_currentChanged(QModelIndex,QModelIndex)));
+                this,SLOT(on_currentChanged(QModelIndex,QModelIndex)));
     ui->tableView->setModel(theModel);
     ui->tableView->setSelectionModel(theSelection);
     ui->tableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectItems);
+
+    setCentralWidget(ui->tableView); //
+
+    //创建状态栏组件
+    LabCellPos = new QLabel("当前单元格：",this);
+    LabCellPos->setMinimumWidth(180);
+    LabCellPos->setAlignment(Qt::AlignHCenter);
+
+    LabCellText = new QLabel("单元格内容：",this);
+    LabCellText->setMinimumWidth(200);
+
+
+    ui->statusbar->addWidget(LabCellPos);
+    ui->statusbar->addWidget(LabCellText);
+
 }
 
 MainWindow::~MainWindow()
@@ -26,9 +41,12 @@ void MainWindow::on_currentChanged(const QModelIndex &current, const QModelIndex
     Q_UNUSED(previous)
     if(current.isValid())
     {
-        LabCellPos->setText(QString::asprintf("当前单元格行号: %d, 列号: %d",current.row(),current.column()));
+        //这里说明一下，没有上面的 LabCellPos = new QLabel("当前单元格：",this); 和 LabCellText = new QLabel("单元格内容：",this);
+        //这里在设置好行和列的情况，下点击确定按钮，后，会自动触发此槽函数，默认选择的是(0,0),就会因LabCellPos为空指针或未初始化而报错。
+        //这个错误不好看到。
+        LabCellPos->setText(QString::asprintf("当前单元格： %d行, %d列",current.row(),current.column()));
         QStandardItem *aItem = theModel->itemFromIndex(current);
-        LabCellText->setText("当前单元格内容："+aItem->text());
+        LabCellText->setText("单元格内容："+aItem->text());
     }
 
 }
