@@ -50,3 +50,24 @@ void MainWindow::on_actTab_SetSize_triggered()
     delete dlgTableSize;//手动释放内存
 }
 
+
+void MainWindow::on_actTab_SetHeader_triggered()
+{//一次创建，多次调用，对话框关闭时只是隐藏
+    if(dlgSetHeaders == nullptr)
+        dlgSetHeaders = new QWDialogHeaders(this);
+    if(dlgSetHeaders->headerList().count() != theModel->columnCount())
+    {//如果表头列数变化，重新初始化（指的是初始化对话框里的listview的内容）
+        QStringList strList;
+        for (int i=0;i<theModel->columnCount();i++)//获取现有的表头标题
+            strList.append(theModel->headerData(i,Qt::Horizontal,Qt::DisplayRole).toString());
+        dlgSetHeaders->setHeaderList(strList);//对话框初始化显示
+    }
+
+    int ret = dlgSetHeaders->exec();//以模态方式显示对话框
+    if(ret==QDialog::Accepted)//OK 键被按下
+    {
+        QStringList strList = dlgSetHeaders->headerList();
+        theModel->setHorizontalHeaderLabels(strList);//设置模型的表头标题
+    }
+}
+

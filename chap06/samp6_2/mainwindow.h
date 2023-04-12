@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QStandardItemModel>
 #include <QItemSelectionModel>
+#include "qwdialogheaders.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,6 +20,8 @@ private:
     QStandardItemModel *theModel;//数据模型
     QItemSelectionModel *theSelection;//选择模型
 
+    QWDialogHeaders *dlgSetHeaders = nullptr;
+
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -29,6 +32,8 @@ private slots:
     void on_currentChanged(const QModelIndex &current, const QModelIndex &previous);
 
     void on_actTab_SetSize_triggered();
+
+    void on_actTab_SetHeader_triggered();
 
 private:
     Ui::MainWindow *ui;
