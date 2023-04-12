@@ -10,13 +10,16 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qwdialogsize.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    qwdialogsize.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    qwdialogsize.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -44,13 +44,13 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="setRowsAndColsAction"/>
-   <addaction name="setHeaderAndTitleAction"/>
+   <addaction name="actTab_SetSize"/>
+   <addaction name="actTab_SetHeader"/>
    <addaction name="postionCellAction"/>
    <addaction name="separator"/>
    <addaction name="exitAction"/>
   </widget>
-  <action name="setRowsAndColsAction">
+  <action name="actTab_SetSize">
    <property name="icon">
     <iconset resource="qrc.qrc">
      <normaloff>:/images/icons/230.bmp</normaloff>:/images/icons/230.bmp</iconset>
@@ -62,7 +62,7 @@
     <string>设置行数列数</string>
    </property>
   </action>
-  <action name="setHeaderAndTitleAction">
+  <action name="actTab_SetHeader">
    <property name="icon">
     <iconset resource="qrc.qrc">
      <normaloff>:/images/icons/516.bmp</normaloff>:/images/icons/516.bmp</iconset>
