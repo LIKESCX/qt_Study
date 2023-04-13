@@ -46,9 +46,9 @@
    </attribute>
    <addaction name="actTab_SetSize"/>
    <addaction name="actTab_SetHeader"/>
-   <addaction name="postionCellAction"/>
+   <addaction name="actTab_Locate"/>
    <addaction name="separator"/>
-   <addaction name="exitAction"/>
+   <addaction name="actExit"/>
   </widget>
   <action name="actTab_SetSize">
    <property name="icon">
@@ -74,7 +74,7 @@
     <string>设置表头标题</string>
    </property>
   </action>
-  <action name="postionCellAction">
+  <action name="actTab_Locate">
    <property name="icon">
     <iconset resource="qrc.qrc">
      <normaloff>:/images/icons/304.bmp</normaloff>:/images/icons/304.bmp</iconset>
@@ -86,7 +86,7 @@
     <string>定位单元格</string>
    </property>
   </action>
-  <action name="exitAction">
+  <action name="actExit">
    <property name="icon">
     <iconset resource="qrc.qrc">
      <normaloff>:/images/icons/132.bmp</normaloff>:/images/icons/132.bmp</iconset>
@@ -102,5 +102,22 @@
  <resources>
   <include location="qrc.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>158</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -64,6 +64,10 @@
        <property name="text">
         <string>确定</string>
        </property>
+       <property name="icon">
+        <iconset resource="qrc.qrc">
+         <normaloff>:/images/icons/704.bmp</normaloff>:/images/icons/704.bmp</iconset>
+       </property>
       </widget>
      </item>
      <item>
@@ -71,13 +75,19 @@
        <property name="text">
         <string>取消</string>
        </property>
+       <property name="icon">
+        <iconset resource="qrc.qrc">
+         <normaloff>:/images/icons/706.bmp</normaloff>:/images/icons/706.bmp</iconset>
+       </property>
       </widget>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="qrc.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>btnOk</sender>

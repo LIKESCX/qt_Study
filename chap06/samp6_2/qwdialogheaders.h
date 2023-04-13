@@ -12,7 +12,7 @@ class QWDialogHeaders : public QDialog
 {
     Q_OBJECT
 private:
-    QStringListModel *model;
+    QStringListModel *model = nullptr;
 public:
     explicit QWDialogHeaders(QWidget *parent = nullptr);
     ~QWDialogHeaders();
