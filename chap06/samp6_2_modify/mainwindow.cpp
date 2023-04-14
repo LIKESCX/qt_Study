@@ -37,23 +37,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::setACellText(int row, int column, const QString &text)
+void MainWindow::setACellText(int row, int column, QString &text)
 {
+    //定位到单元格，并设置字符串
     QModelIndex index = theModel->index(row,column);//获取指定单元格的模型索引
     theSelection->clearSelection();//重置选择区域
     theSelection->setCurrentIndex(index,QItemSelectionModel::Select);
-    theModel->setData(index,text,Qt::DisplayRole);
+    theModel->setData(index,text,Qt::DisplayRole);//设置单元格字符串
 }
 
 void MainWindow::setActLocateEnable(bool enable)
 {
+    //设置actTab_Locate的enable属性
     ui->actTab_Locate->setEnabled(enable);
 }
 
-void MainWindow::setDlgLocateNull()
-{
-    dlgLocate = nullptr;
-}
+//void MainWindow::setDlgLocateNull()
+//{
+//    dlgLocate = nullptr;
+//}
 
 //询问窗口是否退出,当 主窗口被关闭时，都会主动调此函数，进行提示，来最终确认
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -121,8 +123,7 @@ void MainWindow::on_actTab_SetHeader_triggered()
 
 void MainWindow::on_actTab_Locate_triggered()
 {//创建StayOnTop的对话框，对话框关闭时自动删除
-    ui->actTab_Locate->setEnabled(false);//这句的作用是，当对话框被打开后，非模态的方式，不能再点击工具栏上的打开此对话框的按钮，直至对话框被关闭。
-    dlgLocate = new QWDialogLocate(this);
+    QWDialogLocate *dlgLocate = new QWDialogLocate(this);
     dlgLocate->setAttribute(Qt::WA_DeleteOnClose);//对话框关闭时 ，自动删除,作用相当于 delete ,可再对应的析构函数中添加提示，看是否调用了。
     Qt::WindowFlags flags = dlgLocate->windowFlags();//获取已有flags
     dlgLocate->setWindowFlags(flags | Qt::WindowStaysOnTopHint);
@@ -130,14 +131,25 @@ void MainWindow::on_actTab_Locate_triggered()
     QModelIndex curIndex = theSelection->currentIndex();
     if(curIndex.isValid())
         dlgLocate->setSpinValue(curIndex.row(),curIndex.column());
+    //对话框发射信号，设置单元格文字
+    connect(dlgLocate,SIGNAL(changeCellText(int,int,QString&)),
+            this,SLOT(setACellText(int ,int, QString&)));
+
+    //对话框发射信号，设置actTab_Locate的属性
+    connect(dlgLocate,SIGNAL(changeActionEnable(bool)),
+            this,SLOT(setActLocateEnable(bool)));
+
+    //主窗口发射信号，修改对话框上的spinBox的值
+    connect(this,SIGNAL(cellIndexChanged(int,int)),
+            dlgLocate,SLOT(setSpinValue(int,int)));
+
     dlgLocate->show();//非模态显示对话框 ,程序不会阻塞。
 
 }
 
 
 void MainWindow::on_tableView_clicked(const QModelIndex &index)
-{//单击单元格时，将单元格的行号、列号设置到对话框上
-    if(dlgLocate!=nullptr)
-        dlgLocate->setSpinValue(index.row(),index.column());
+{//单击单元格时，发射信号，传递单元格的行号、列号
+    emit cellIndexChanged(index.row(),index.column());
 }
 

@@ -23,14 +23,10 @@ private:
 
     QWDialogHeaders *dlgSetHeaders = nullptr;
 
-    QWDialogLocate *dlgLocate = nullptr;
+    //QWDialogLocate *dlgLocate = nullptr;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
-    void setACellText(int row,int column,const QString &text);
-    void setActLocateEnable(bool enable);//重新设置actTab_Locate为使能。
-    void setDlgLocateNull();//重新设置actTab_Locate为使能。
 
 private:
     void closeEvent(QCloseEvent *event);//主窗口添加closeEvent()事件处理
@@ -46,6 +42,12 @@ private slots:
     void on_actTab_Locate_triggered();
 
     void on_tableView_clicked(const QModelIndex &index);
+
+public slots:
+    void setACellText(int row, int column, QString &text);//设置单元格内容
+    void setActLocateEnable(bool enable);//设置actTab_Locate的enable属性
+signals:
+    void cellIndexChanged(int rowNo,int colNo);//当前单元格发生变化
 
 private:
     Ui::MainWindow *ui;
