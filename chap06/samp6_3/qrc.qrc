@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>icons/2.ico</file>
+        <file>icons/3.ico</file>
+        <file>icons/43.ico</file>
+        <file>icons/100.bmp</file>
+        <file>icons/104.bmp</file>
+        <file>icons/122.bmp</file>
+        <file>icons/132.bmp</file>
+        <file>icons/200.bmp</file>
+        <file>icons/202.bmp</file>
+        <file>icons/204.bmp</file>
+        <file>icons/206.bmp</file>
+        <file>icons/208.bmp</file>
+        <file>icons/230.bmp</file>
+        <file>icons/304.bmp</file>
+        <file>icons/400.bmp</file>
+        <file>icons/402.bmp</file>
+        <file>icons/404.bmp</file>
+        <file>icons/406.bmp</file>
+        <file>icons/500.bmp</file>
+        <file>icons/502.bmp</file>
+        <file>icons/504.bmp</file>
+        <file>icons/506.bmp</file>
+        <file>icons/510.bmp</file>
+        <file>icons/512.bmp</file>
+        <file>icons/514.bmp</file>
+        <file>icons/516.bmp</file>
+        <file>icons/704.bmp</file>
+        <file>icons/706.bmp</file>
+        <file>icons/804.bmp</file>
+        <file>icons/back2.jpg</file>
+        <file>icons/Doc.ico</file>
+        <file>icons/Excel.ico</file>
+    </qresource>
+</RCC>
